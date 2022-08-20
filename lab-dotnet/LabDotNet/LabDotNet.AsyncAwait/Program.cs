@@ -1,4 +1,4 @@
-﻿namespace Example
+﻿namespace LabDotNet.AsyncAwait
 {
 	public class Program
 	{
@@ -12,18 +12,24 @@
 			}
 		}
 
-		async static Task MakeAnything(Func<Task> process)
+		async static Task Work(Func<Task> startTask)
 		{
-			var task = process();
+			var task = startTask();
+			var processTask = StartProcessAsync();
 
+			var tasks = new[] { task, processTask };
+
+			await Task.WhenAll(tasks);
+		}
+
+		private static async Task StartProcessAsync()
+		{
 			for (var i = 0; i < 10; i++)
 			{
 				var delay = i * 500;
 				Console.WriteLine($"Working... {delay}");
 				await Task.Delay(delay);
 			}
-
-			await task;
 		}
 
 		static Task BlockingProcessAsync()
@@ -41,16 +47,16 @@
 		public async static Task Main()
 		{
 			Console.WriteLine($"{nameof(BlockingProcessAsync)} Execution:");
-			await MakeAnything(BlockingProcessAsync);
+			await Work(BlockingProcessAsync);
 
 			Console.WriteLine($"{nameof(NonBlockingProcessAsync)} Execution: ");
-			await MakeAnything(NonBlockingProcessAsync);
+			await Work(NonBlockingProcessAsync);
 
 			Console.WriteLine($"{nameof(BlockingProcessAsync2)} Execution:");
-			await MakeAnything(BlockingProcessAsync2);
+			await Work(BlockingProcessAsync2);
 
 			Console.WriteLine($"{nameof(NonBlockingProcessAsync2)} Execution: ");
-			await MakeAnything(NonBlockingProcessAsync2);
+			await Work(NonBlockingProcessAsync2);
 		}
 
 		async static Task NonBlockingProcessAsync2()

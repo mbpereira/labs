@@ -1,10 +1,10 @@
 ## Objetivo
-O objetivo desse teste È entender como o uso de .Wait() ou .Result bloqueia a thread e acaba a ideia de async/await.
+O objetivo desse teste √© entender como o uso de .Wait() ou .Result bloqueia a thread e acaba com a ideia de async/await.
 
-## DescriÁ„o do teste
+## Descri√ß√£o do teste
 
-A ideia desse teste È basicamente iniciar 'Task' e um processamento qualquer 
-e sÛ ent„o aguardar a finalizaÁ„o da Task iniciada anteriormente.
+A ideia desse teste √© basicamente iniciar 'Task' e um processamento qualquer 
+e s√≥ ent√£o aguardar a finaliza√ß√£o da Task iniciada anteriormente.
 
 ```cs
 // LabDotNet.AsyncAwait.Program.MakeAnything
@@ -19,21 +19,21 @@ async static Task Work(Func<Task> startTask)
 }
 ```
 
-Com essa abordagem, È esperado que a Task e o processamento sejam executados praticamente juntos. 
-Entretanto, se a funÁ„o startTask utilizar na sua implementaÁ„o .Wait() ou .Result, isso n„o acontecer·,
-uma vez que essas instruÁıes s„o 'bloqueantes'. Sua utilizaÁ„o acaba com objetivo do async/await, pois transforma um
-cÛdigo que deveria ser assincrono em sincrono.
+Com essa abordagem, √© esperado que a Task e o processamento sejam executados praticamente juntos. 
+Entretanto, se a fun√ß√£o startTask utilizar na sua implementa√ß√£o .Wait() ou .Result, isso n√£o acontecer√°,
+uma vez que essas instru√ß√µes s√£o 'bloqueantes'. Sua utiliza√ß√£o acaba com objetivo do async/await, pois transforma um
+c√≥digo que deveria ser assincrono em sincrono.
 
 
 ## Resultados
-### Utilizando mÈtodos bloqueantes
+### Utilizando m√©todos bloqueantes
 
 ```cs
 Console.WriteLine($"{nameof(BlockingProcessAsync)} Execution:");
 await Work(BlockingProcessAsync);
 ```
 
-AtravÈs da saÌda abaixo podemos verificar que mesmo utilizando async/await e Task.WhenAll,
+Atrav√©s da sa√≠da abaixo podemos verificar que mesmo utilizando async/await e Task.WhenAll,
 o trabalho foi executado de forma *Sincrona*:
 ```bash
 BlockingProcessAsync Execution:
@@ -59,13 +59,13 @@ Working... 4000
 Working... 4500
 ```
 
-### Utilizando mÈtodos n„o bloqueantes
+### Utilizando m√©todos n√£o bloqueantes
 ```cs
 Console.WriteLine($"{nameof(NonBlockingProcessAsync)} Execution: ");
 await Work(NonBlockingProcessAsync);
 ```
 
-Utilizando mÈtodos n„o bloqueantes, podemos verificar que o trabalho foi executado de forma 
+Utilizando m√©todos n√£o bloqueantes, podemos verificar que o trabalho foi executado de forma 
 assincrona, como esperado:
 ```bash
 NonBlockingProcessAsync Execution:

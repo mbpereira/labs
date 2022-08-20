@@ -1,0 +1,1 @@
+Este repositório nada profissional terá como objetivo armazenar alguns testes executados para entender algumas ferramentas e alguns conceitos.

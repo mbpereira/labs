@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabDotNet.DeadLock.Console"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabDotNet.DeadLock.Framework", "LabDotNet.DeadLock.Framework\LabDotNet.DeadLock.Framework.csproj", "{5E555776-D4BB-4D05-947C-0F1C28ADBDF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortExhaust", "PortExhaust\PortExhaust.csproj", "{9CDFD24B-E0A0-4A92-8D28-665500EBF53A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortExhaust", "PortExhaust\PortExhaust.csproj", "{9CDFD24B-E0A0-4A92-8D28-665500EBF53A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionClosing", "ConnectionClosing\ConnectionClosing.csproj", "{256A3CC0-15AD-47EF-99C7-4D37CB6EAC12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{9CDFD24B-E0A0-4A92-8D28-665500EBF53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CDFD24B-E0A0-4A92-8D28-665500EBF53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CDFD24B-E0A0-4A92-8D28-665500EBF53A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256A3CC0-15AD-47EF-99C7-4D37CB6EAC12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256A3CC0-15AD-47EF-99C7-4D37CB6EAC12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256A3CC0-15AD-47EF-99C7-4D37CB6EAC12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256A3CC0-15AD-47EF-99C7-4D37CB6EAC12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
